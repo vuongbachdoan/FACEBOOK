@@ -13,4 +13,4 @@
 ### Version table
 |--**VERSION**-|**----------------------------------FUNCTION DETAILS**|
 
-|-**v0.23.6.21**-|-Initial project__________________________________-|
+|-**v0.23.6.21**-|-Initial project
