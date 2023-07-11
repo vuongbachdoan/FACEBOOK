@@ -1,8 +1,9 @@
-import { Form, Button, Schema, ButtonToolbar, Panel } from "rsuite";
+import { Form, Button, Schema, ButtonToolbar, Panel, PanelGroup } from "rsuite";
 import FormGroup from "rsuite/esm/FormGroup";
 import FacebookOfficialIcon from "@rsuite/icons/legacy/FacebookOfficial";
 import GooglePlusCircleIcon from "@rsuite/icons/legacy/GooglePlusCircle";
-import "bootstrap/dist/css/bootstrap.css";
+import { NavLink } from "react-router-dom";
+
 const { StringType } = Schema.Types;
 const model = Schema.Model({
   email: StringType()
@@ -21,73 +22,60 @@ export const SignIn = () => {
       <Panel
         header={<h3>Sign in</h3>}
         bordered
-        className="my-panel col-6 shadow row"
+        className="my-panel col-3 shadow row"
       >
         <Form
           model={model}
           onSubmit={handleSubmit}
           className="m-2 p-1 col-12 row"
         >
-          <div className="col-md-8 col-sm-12 row d-flex flex-column flex-md-row">
-            <div className="col-md-6 col-sm-12 m-0">
-              <FormGroup controlId="email" className="col-12">
-                <Form.ControlLabel>Email</Form.ControlLabel>
-                <Form.Control name="email" type="Email" className="p-2 w-100" />
-              </FormGroup>
-              <FormGroup controlId="password" className="col-12">
-                <Form.ControlLabel>Password</Form.ControlLabel>
-                <Form.Control
-                  name="password"
-                  type="Password"
-                  className="p-2 w-100"
-                />
-              </FormGroup>
-            </div>
-            <FormGroup className="col-md-5 col-sm-12">
+          <div className="col-md-12 row d-flex flex-column flex-md-row">
+            <Panel header="Sign in with: " bordered>
+              <PanelGroup className="w-100">
+                <Button
+                  color="blue"
+                  appearance="primary"
+                  startIcon={<FacebookOfficialIcon />}
+                >
+                  Facebook
+                </Button>
+                <label>-Or-</label>
+                <Button
+                  color="red"
+                  appearance="primary"
+                  startIcon={<GooglePlusCircleIcon />}
+                >
+                  Google Plus
+                </Button>
+              </PanelGroup>
+            </Panel>
+            <FormGroup controlId="email" className="col-12">
+              <Form.ControlLabel htmlFor="email">Email</Form.ControlLabel>
+              <Form.Control id="email" name="email" type="Email" className="" />
+            </FormGroup>
+            <FormGroup controlId="password" className="col-12 w-100">
+              <Form.ControlLabel htmlFor="password">Password</Form.ControlLabel>
+              <Form.Control id="password" name="password" type="Password" />
+            </FormGroup>
+            <FormGroup className="col-12">
               <ButtonToolbar className="m-1 d-grid gap-3">
                 <div className="m-1"></div>
                 <Button
                   appearance="primary"
                   active
                   type="submit"
-                  className="my-button btn p-3 shadow"
+                  className="my-button btn shadow"
                 >
                   Sign in
                 </Button>
-                <Button
-                  appearance="default"
-                  className="my-button btn p-2 shadow"
+                <NavLink
+                  to="/sign-up"
+                  className="my-button btn shadow text-decoration-none"
                 >
                   Sign up
-                </Button>
+                </NavLink>
               </ButtonToolbar>
             </FormGroup>
-          </div>
-          <div className="col-md-4 col-sm-12">
-            <Panel
-              className="container shadow"
-              header="Sign in with: "
-              bordered
-            >
-              <ButtonToolbar className="row">
-                <Button
-                  color="blue"
-                  appearance="primary"
-                  startIcon={<FacebookOfficialIcon />}
-                  className="my-button p-2"
-                >
-                  Facebook
-                </Button>
-                <Button
-                  color="red"
-                  appearance="primary"
-                  startIcon={<GooglePlusCircleIcon />}
-                  className="my-button p-2"
-                >
-                  Google Plus
-                </Button>
-              </ButtonToolbar>
-            </Panel>
           </div>
         </Form>
         <div className="m-2 col-md-12 col-sm-12">

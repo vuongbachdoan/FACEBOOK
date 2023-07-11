@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { appRouter } from './core/router';
-import { RouterProvider } from 'react-router-dom';
-import 'rsuite/dist/rsuite.min.css';
-import './shared/styles/__root__.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { appRouter } from "./core/router";
+import { RouterProvider } from "react-router-dom";
+import "rsuite/dist/rsuite.min.css";
+import "./shared/styles/__root__.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={appRouter} />
